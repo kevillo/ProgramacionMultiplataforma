@@ -1,0 +1,5 @@
+com\mycompany\mavenproject1\Principal.class
+com\mycompany\mavenproject1\Utilidades.class
+dao\Alumnos.class
+dao\Conexion.class
+dao\ModeloAlumnos.class
