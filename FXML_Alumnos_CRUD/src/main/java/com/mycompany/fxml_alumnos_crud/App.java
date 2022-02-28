@@ -1,10 +1,14 @@
 package com.mycompany.fxml_alumnos_crud;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.stage.Modality;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
@@ -13,11 +17,13 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    
+    private static Scene modalScene;
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("Menu"), 640, 400);
         stage.setScene(scene);
         stage.show();
     }
@@ -31,6 +37,31 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
+    /*Funciones para abrir la ventana modal*/
+    
+    public static void loadFXML(Parent fxmlShow) throws IOException {
+        scene.setRoot(fxmlShow);
+    }
+    
+    public static FXMLLoader getFXMLLoader( String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        return fxmlLoader;
+    }
+    
+    public static void loadFXMLModal(Parent fxmlShow) throws IOException {
+        modalScene = new Scene(fxmlShow, 640, 400);
+        Stage modalStage = new Stage();
+        modalStage.initModality(Modality.APPLICATION_MODAL);
+        modalStage.setScene(modalScene);
+        modalStage.showAndWait();
+    }
+    
+     public static void closeModal(ActionEvent event) {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
+    
     public static void main(String[] args) {
         launch();
     }

@@ -1,4 +1,3 @@
-com\mycompany\fxml_alumnos_crud\PrimaryController.class
-com\mycompany\fxml_alumnos_crud\SecondaryController.class
-module-info.class
-com\mycompany\fxml_alumnos_crud\App.class
+com\pmp\dao\Alumnos.class
+com\pmp\dao\ModeloAlumnos.class
+com\pmp\dao\Conexion.class
